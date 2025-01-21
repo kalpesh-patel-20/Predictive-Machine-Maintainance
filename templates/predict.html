@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Make Prediction</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Make Prediction</h2>
+
+        <form action="/predict" method="POST">
+
+            <label for="air_temp">Air Temperature [K]:</label>
+            <input type="number" id="air_temp" name="Air temperature [K]" step="0.1" required>
+
+            <label for="process_temp">Process Temperature [K]:</label>
+            <input type="number" id="process_temp" name="Process temperature [K]" step="0.1" required>
+
+            <label for="speed">Rotational Speed [rpm]:</label>
+            <input type="number" id="speed" name="Rotational speed [rpm]" required>
+
+            <label for="torque">Torque [Nm]:</label>
+            <input type="number" id="torque" name="Torque [Nm]" step="0.1" required>
+
+            <label for="tool_wear">Tool Wear [min]:</label>
+            <input type="number" id="tool_wear" name="Tool wear [min]" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="prediction-result">
+            <h3>Prediction Result:</h3>
+            <p>Prediction: {{ prediction }}</p>
+            <p>Confidence: {{ confidence }}%</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
