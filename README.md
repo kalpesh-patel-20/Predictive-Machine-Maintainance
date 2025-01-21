@@ -55,12 +55,13 @@ Here are some screenshots of the web application:
     cd predictive-maintenance
     ```
 
-2. Create and activate a virtual environment:
+2. Create a Virtual Environment (recommended)
 
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows, use venv\Scripts\activate
-    ```
+   ```bash
+   python -m venv myenv
+   myenv\Scripts\activate  # On Windows
+   source myenv/bin/activate  # On macOS/Linux
+   ```
 
 3. Install the required dependencies:
 
