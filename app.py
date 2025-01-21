@@ -120,7 +120,13 @@ def predict_page():
             return render_template("predict.html", 
                                    message="Prediction completed!",
                                    prediction="Failure" if prediction == 1 else "No Failure",
-                                   confidence=round(confidence, 2))
+                                   confidence=round(confidence, 2),
+                                   air_temp=input_data["Air temperature [K]"],
+                                   process_temp=input_data["Process temperature [K]"],
+                                   speed=input_data["Rotational speed [rpm]"],
+                                   torque=input_data["Torque [Nm]"],
+                                   tool_wear=input_data["Tool wear [min]"])
+        
         except Exception as e:
             return render_template("predict.html", message=f"Error: {str(e)}")
     return render_template("predict.html")
